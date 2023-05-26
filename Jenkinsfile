@@ -13,8 +13,8 @@ pipeline{
             steps{
                 
                 script{
-                    withSonarQubeEnv(credentialsId: '9a2edf87-e9b1-4238-9d51-6af20786455b') {
-                    sudo sh 'mvn clean package sonar:sonar' 
+                    withSonarQubeEnv(installationName: 'sonar') {
+                    sh './mvnw clean org.sonarsource.scanner.maven:sonar-maven-plugin:3.9.0.2155:sonar' 
                     }
 
                 }
